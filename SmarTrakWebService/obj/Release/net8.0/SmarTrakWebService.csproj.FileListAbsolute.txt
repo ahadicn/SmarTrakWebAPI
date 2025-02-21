@@ -1,0 +1,15 @@
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Release\net8.0\SmarTrakWebService.deps.json
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Release\net8.0\SmarTrakWebService.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Release\net8.0\SmarTrakWebService.pdb
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Release\net8.0\SmarTrakWebDomain.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Release\net8.0\SmarTrakWebDomain.pdb
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.csproj.AssemblyReference.cache
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.GeneratedMSBuildEditorConfig.editorconfig
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.AssemblyInfoInputs.cache
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.AssemblyInfo.cs
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.csproj.CoreCompileInputs.cache
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrak.30B1A76E.Up2Date
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\refint\SmarTrakWebService.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\SmarTrakWebService.pdb
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Release\net8.0\ref\SmarTrakWebService.dll

@@ -1,0 +1,11 @@
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\bin\Debug\net8.0\SmarTrakWebDomain.deps.json
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\bin\Debug\net8.0\SmarTrakWebDomain.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\bin\Debug\net8.0\SmarTrakWebDomain.pdb
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.AssemblyInfoInputs.cache
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.AssemblyInfo.cs
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.csproj.CoreCompileInputs.cache
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\refint\SmarTrakWebDomain.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\SmarTrakWebDomain.pdb
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebDomain\obj\Debug\net8.0\ref\SmarTrakWebDomain.dll

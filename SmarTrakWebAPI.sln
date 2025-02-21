@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmarTrakWebAPI", "SmarTrakWebAPI\SmarTrakWebAPI.csproj", "{9B776207-5C59-4169-9815-343E2DAA3C25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmarTrakWebData", "SmarTrakWebData\SmarTrakWebData.csproj", "{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmarTrakWebDomain", "SmarTrakWebDomain\SmarTrakWebDomain.csproj", "{868596D1-B695-47DC-8B5C-15B499C4609D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmarTrakWebService", "SmarTrakWebService\SmarTrakWebService.csproj", "{751359A4-A72A-44D0-AA19-041D8077C70E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B776207-5C59-4169-9815-343E2DAA3C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B776207-5C59-4169-9815-343E2DAA3C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B776207-5C59-4169-9815-343E2DAA3C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B776207-5C59-4169-9815-343E2DAA3C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868596D1-B695-47DC-8B5C-15B499C4609D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868596D1-B695-47DC-8B5C-15B499C4609D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868596D1-B695-47DC-8B5C-15B499C4609D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868596D1-B695-47DC-8B5C-15B499C4609D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751359A4-A72A-44D0-AA19-041D8077C70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751359A4-A72A-44D0-AA19-041D8077C70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751359A4-A72A-44D0-AA19-041D8077C70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751359A4-A72A-44D0-AA19-041D8077C70E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

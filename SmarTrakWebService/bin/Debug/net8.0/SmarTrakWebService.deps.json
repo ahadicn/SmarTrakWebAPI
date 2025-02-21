@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SmarTrakWebService/1.0.0": {
+        "dependencies": {
+          "SmarTrakWebDomain": "1.0.0"
+        },
+        "runtime": {
+          "SmarTrakWebService.dll": {}
+        }
+      },
+      "SmarTrakWebDomain/1.0.0": {
+        "runtime": {
+          "SmarTrakWebDomain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SmarTrakWebService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SmarTrakWebDomain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

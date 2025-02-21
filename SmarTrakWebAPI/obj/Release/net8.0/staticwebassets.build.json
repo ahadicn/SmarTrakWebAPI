@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "65sXIi9+LxUED1v3a49K3ZEAx33MycxcJIVbZ0G0m0o=",
+  "Source": "SmarTrakWebAPI",
+  "BasePath": "_content/SmarTrakWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
