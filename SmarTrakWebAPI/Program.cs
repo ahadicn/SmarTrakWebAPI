@@ -1,31 +1,143 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
-using SmarTrakWebData.DBEntities;
-using SmarTrakWebData.Repositories;
-using SmarTrakWebDomain.Repositories;
-using SmarTrakWebDomain.Services;
-using SmarTrakWebService;
+using Microsoft.OpenApi.Models;
+using SmarTrakWebAPI.Filters;
+using Microsoft.Identity.Web;
+using System.Security.Claims;
+using System.Xml.Xsl;
+using SmarTrakWebAPI.DBEntities;
+//using SmarTrakWebAPI.Middleware;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+//// Add authentication services for [Authorize] attribute
+
+// Add Azure AD authentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(
+        jwtOptions =>
+        {
+
+            jwtOptions.TokenValidationParameters.ValidAudiences = new[]
+            {
+                builder.Configuration["AzureAd:Audience"],
+                $"api://{builder.Configuration["AzureAd:Audience"]}"
+            };
+            // Map roles and name claims
+            jwtOptions.TokenValidationParameters.RoleClaimType = "roles";
+            jwtOptions.TokenValidationParameters.NameClaimType = "name";
+
+            // Disable automatic claim mapping to preserve original claim types
+            jwtOptions.MapInboundClaims = false;
+
+            // Transform namespaced claims to short names
+            jwtOptions.Events = new JwtBearerEvents
+            {
+                OnTokenValidated = context =>
+                {
+                    if (context.Principal != null)
+                    {
+                        var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
+                        if (claimsIdentity != null)
+                        {
+                            // Map role claim
+                            var roleClaims = claimsIdentity.FindAll("http://schemas.microsoft.com/ws/2008/06/identity/claims/role").ToList();
+                            foreach (var claim in roleClaims)
+                            {
+                                claimsIdentity.AddClaim(new Claim("roles", claim.Value));
+                            }
+
+                            // Map oid claim
+                            var oidClaim = claimsIdentity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
+                            if (oidClaim != null)
+                            {
+                                claimsIdentity.AddClaim(new Claim("oid", oidClaim.Value));
+                            }
+
+                            // Map sub claim (if needed)
+                            var subClaim = claimsIdentity.FindFirst("sub");
+                            if (subClaim != null)
+                            {
+                                claimsIdentity.AddClaim(new Claim("sub", subClaim.Value));
+                            }
+                        }
+                    }
+                    return Task.CompletedTask;
+                }
+            };
+        },
+        identityOptions =>
+        {
+            // Bind AzureAd configuration
+            builder.Configuration.GetSection("AzureAd").Bind(identityOptions);
+        });
+
+
+
+
+// Add authorization
+builder.Services.AddAuthorization();
+
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddLogging();
+
+
+// Add services to the container.
 // Register AzureTestContext in DI
-builder.Services.AddDbContext<AzureTestContext>(options =>
+builder.Services.AddDbContext<STContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // Register other services
-builder.Services.AddHttpClient<IAzureFunctionService, AzureFunctionService>();
-builder.Services.AddScoped<IOrganizationRepository, OrganizationRepository>();
-builder.Services.AddScoped<IOrganizationService, OrganizationService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddControllers();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SmarTrakAzure", Version = "v1" });
+
+    // Enable JWT Bearer token support in Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Enter 'Bearer' followed by your access token (with a space in between)",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+
+    c.OperationFilter<FileUploadOperationFilter>(); // if still needed
+});
+
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 200_000_000; // 200 MB
+});
+
 
 var app = builder.Build();
 
@@ -40,7 +152,11 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
+// Apply JWT middleware (no role requirements, handled by [Authorize])
+//app.UseJwtRoleMiddleware();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

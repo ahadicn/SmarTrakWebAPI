@@ -1,8 +1,0 @@
-# Ignore build and user-specific files
-bin/
-obj/
-.vs/
-*.user
-*.suo
-*.log
-*.swp
