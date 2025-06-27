@@ -86,14 +86,13 @@ builder.Services.AddControllers();
 builder.Services.AddLogging();
 
 
-// Add services to the container.
-// Register AzureTestContext in DI
+// Register DbContext with retry logic
 builder.Services.AddDbContext<STContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()
+    ));
 
-
-// Register other services
-builder.Services.AddControllers();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -104,11 +103,10 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "SmarTrakAzure", Version = "v1" });
 
-    // Enable JWT Bearer token support in Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
-        Description = "Enter 'Bearer' followed by your access token (with a space in between)",
+        Description = "Enter 'Bearer' followed by your access token",
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
@@ -125,11 +123,11 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+            Array.Empty<string>()
         }
     });
 
-    c.OperationFilter<FileUploadOperationFilter>(); // if still needed
+    c.OperationFilter<FileUploadOperationFilter>(); // Only keep if handling file uploads
 });
 
 
@@ -148,6 +146,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "SmartrakAPI V1");
+        c.RoutePrefix = string.Empty; // Makes Swagger UI accessible at root
     });
 }
 
