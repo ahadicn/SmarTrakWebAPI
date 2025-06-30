@@ -7,6 +7,10 @@ using Microsoft.Identity.Web;
 using System.Security.Claims;
 using System.Xml.Xsl;
 using SmarTrakWebAPI.DBEntities;
+using SmarTrakWebData.Repositories;
+using SmarTrakWebDomain.Repositories;
+using SmarTrakWebDomain.Services;
+using SmarTrakWebService;
 //using SmarTrakWebAPI.Middleware;
 
 
@@ -82,7 +86,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // preserves PascalCase (optional)
+    });
 builder.Services.AddLogging();
 
 
@@ -93,7 +101,10 @@ builder.Services.AddDbContext<STContext>(options =>
         sqlOptions => sqlOptions.EnableRetryOnFailure()
     ));
 
-
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

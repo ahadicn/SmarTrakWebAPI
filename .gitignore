@@ -1,2 +1,4 @@
 "bin/\nobj/" 
 /.vs/SmarTrakWebAPI/FileContentIndex
+/SmarTrakWebAPI/appsettings.json
+/SmarTrakWebAPI/bin/Debug/net8.0/appsettings.json

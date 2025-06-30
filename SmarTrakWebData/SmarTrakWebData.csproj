@@ -24,8 +24,4 @@
     <ProjectReference Include="..\SmarTrakWebDomain\SmarTrakWebDomain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

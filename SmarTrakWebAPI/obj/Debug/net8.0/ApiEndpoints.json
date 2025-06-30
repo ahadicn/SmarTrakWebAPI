@@ -7,22 +7,12 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SmarTrakWebAPI.DBEntities.Customer, SmarTrakWebData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "SmarTrakWebAPI.Controllers.CustomerController",
+    "ContainingType": "SmarTrakWebAPI.Controllers.CustomerSubscriptionsController",
     "Method": "GetSubscriptionsByCustomer",
-    "RelativePath": "api/Customer/{customerId}/subscriptions",
+    "RelativePath": "api/CustomerSubscriptions/{customerId}/subscriptions",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -33,37 +23,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SmarTrakWebAPI.DBEntities.Subscription, SmarTrakWebData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "SmarTrakWebAPI.Controllers.CustomerSubscriptionsController",
-    "Method": "GetCustomerSubscriptions",
-    "RelativePath": "api/CustomerSubscriptions",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SmarTrakWebAPI.DBEntities.Customer, SmarTrakWebData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FileUploadController",
