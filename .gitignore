@@ -2,3 +2,7 @@
 /.vs/SmarTrakWebAPI/FileContentIndex
 /SmarTrakWebAPI/bin/Debug/net8.0
 /SmarTrakWebAPI/appsettings.json
+/SmarTrakWebAPI/bin/
+/SmarTrakWebAPI/obj/
+/SmarTrakWebAPI/.vs
+/SmarTrakWebAPI/appsettings.Development.json
