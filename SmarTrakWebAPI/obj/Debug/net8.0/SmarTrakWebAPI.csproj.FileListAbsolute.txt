@@ -174,7 +174,6 @@ E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI - Copy\SmarTrakWebAPI\obj\Debug\net8.0\r
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI - Copy\SmarTrakWebAPI\obj\Debug\net8.0\SmarTrakWebAPI.pdb
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI - Copy\SmarTrakWebAPI\obj\Debug\net8.0\SmarTrakWebAPI.genruntimeconfig.cache
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI - Copy\SmarTrakWebAPI\obj\Debug\net8.0\ref\SmarTrakWebAPI.dll
-E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\bin\Debug\net8.0\appsettings.Development.json
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\bin\Debug\net8.0\appsettings.json
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\bin\Debug\net8.0\SmarTrakWebAPI.staticwebassets.endpoints.json
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\bin\Debug\net8.0\SmarTrakWebAPI.exe

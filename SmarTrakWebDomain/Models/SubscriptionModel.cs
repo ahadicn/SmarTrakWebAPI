@@ -13,9 +13,9 @@ namespace SmarTrakWebDomain.Models
         public Guid SubscriptionId { get; set; }
 
         public Guid CustomerId { get; set; }
-        //public string CustomerName { get; set; }
+        public string CustomerName { get; set; }
 
-        //public Guid? CustomerRefId { get; set; }
+        public Guid? CustomerRefId { get; set; }
 
         public string OfferName { get; set; } = null!;
 

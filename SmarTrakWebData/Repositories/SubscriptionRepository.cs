@@ -83,6 +83,8 @@ namespace SmarTrakWebData.Repositories
                     Id = s.Id,
                     SubscriptionId = s.SubscriptionId,
                     CustomerId = s.CustomerId,
+                    CustomerName = s.Customer.Name,
+                    CustomerRefId = s.CustomerRefId,
                     OfferName = s.OfferName,
                     Status = s.Status,
                     Quantity = s.Quantity,
