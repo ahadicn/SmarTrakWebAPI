@@ -350,3 +350,4 @@ E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\obj\Debug\net8.0\SmarTrak
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\obj\Debug\net8.0\SmarTrakWebAPI.genruntimeconfig.cache
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\obj\Debug\net8.0\ref\SmarTrakWebAPI.dll
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebAPI\bin\Debug\net8.0\Dapper.dll

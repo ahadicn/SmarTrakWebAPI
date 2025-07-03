@@ -22,12 +22,12 @@ namespace SmarTrakWebAPI.Controllers
         }
 
         // GET: api/Customer
-        [HttpGet]
-        public async Task<IActionResult> GetAllCustomers()
+        [HttpGet("GetAllCustomer")]
+        public async Task<IActionResult> GetAllCustomers([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             try
             {
-                var result = await _customerService.GetAllCustomersAsync();
+                var result = await _customerService.GetAllCustomersAsync(searchTerm, page, pageSize);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -36,8 +36,34 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
-        
 
+        [HttpGet("CustomerCount")]
+        public async Task<IActionResult> GetCustomerCountAsync()
+        {
+            try
+            {
+                var metrics = await _customerService.GetCustomerCountAsync();
+                return Ok(metrics);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = "Server error", Details = ex.Message });
+            }
+        }
+
+        [HttpGet("GetCustomerWithSubscriptions")]
+        public async Task<IActionResult> GetCustomerSubscriptions([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            try
+            {
+                var result = await _customerService.GetCustomerSubscriptionsAsync(searchTerm, page, pageSize);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "An error occurred while fetching customer subscriptions", message = ex.Message });
+            }
+        }
 
 
 

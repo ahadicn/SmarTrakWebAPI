@@ -19,19 +19,22 @@ namespace SmarTrakWebService
             _customerRepository = customerRepo;
         }
 
-        public async Task<IEnumerable<CustomerModel>> GetAllCustomersAsync()
+        public async Task<PagedResult<CustomerModel>> GetAllCustomersAsync(string? searchTerm, int page, int pageSize)
         {
-            return await _customerRepository.GetAllAsync();
+            return await _customerRepository.GetAllAsync(searchTerm, page, pageSize);
         }
 
-        public async Task<CustomerModel> GetByIdAsync(Guid id)
+        public async Task<SPCustomerCountModel> GetCustomerCountAsync()
         {
-            return await _customerRepository.GetByIdAsync(id);
+            return await _customerRepository.GetCustomerCountAsync();
+        }
+
+        public async Task<PagedResult<CustomerWithSubscriptionsModel>> GetCustomerSubscriptionsAsync(string? searchTerm, int page, int pageSize)
+        {
+            return await _customerRepository.GetCustomerSubscriptionsAsync(searchTerm, page, pageSize);
         }
 
 
-
-        
     }
 
 }

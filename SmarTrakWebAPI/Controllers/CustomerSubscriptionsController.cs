@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmarTrakWebAPI.DBEntities;
+using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Services;
+using SmarTrakWebService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +25,22 @@ namespace SmarTrakWebAPI.Controllers
             _subscriptionService = subscriptionService;
         }
 
-        // GET: api/Customer/{customerId}/subscriptions
+        [HttpGet("GetAllSubscriptions")]
+        public async Task<IActionResult> GetAllSubscriptions([FromQuery] GetAllSubscriptionResponseModel parameters)
+        {
+            try
+            {
+                var result = await _subscriptionService.GetAllSubscriptionsAsync(parameters);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to fetch subscriptions", message = ex.Message });
+            }
+        }
+
+
+        // GET: api/CustomerSubscriptions/{customerId}/subscriptions
         [HttpGet("{customerId}/subscriptions")]
         public async Task<IActionResult> GetSubscriptionsByCustomer(Guid customerId)
         {
@@ -41,49 +58,21 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
+        [HttpGet("SubscriptionCount")]
+        public async Task<IActionResult> GetSubscriptionCountAsync()
+        {
+            try
+            {
+                var metrics = await _subscriptionService.GetSubscriptionCountAsync();
+                return Ok(metrics);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Error = "Server error", Details = ex.Message });
+            }
+        }
 
-
-
-
-
-
-        //====================================================================================
-        //// GET: api/CustomerSubscriptions
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Customer>>> GetCustomerSubscriptions()
-        //{
-        //    try
-        //    {
-        //        var customers = await _context.Customers
-        //            .Include(c => c.Subscriptions)
-        //            .Select(c => new Customer
-        //            {
-        //                Id = c.Id,
-        //                Name = c.Name,
-        //                Domain = c.Domain,
-        //                Subscriptions = c.Subscriptions.Select(s => new Subscription
-        //                {
-        //                    Id = s.Id,
-        //                    OfferName = s.OfferName,
-        //                    Status = s.Status,
-        //                    Quantity = s.Quantity,
-        //                    UnitType = s.UnitType,
-        //                    BillingCycle = s.BillingCycle,
-        //                    BillingType = s.BillingType,
-        //                    CreatedDate = s.CreatedDate,
-        //                    StartedDate = s.StartedDate,
-        //                    CreatedAt = s.CreatedAt,
-        //                    UpdatedAt = s.UpdatedAt
-        //                }).ToList()
-        //            })
-        //            .ToListAsync();
-
-        //        return Ok(customers);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { error = "An error occurred while fetching customer subscriptions", message = ex.Message });
-        //    }
-        //}
+        
+        
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3hTpsWJ7BnY=",
+  "dgSpecHash": "tr5BReK62fY=",
   "success": true,
   "projectFilePath": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\SmarTrakWebAPI.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\abdulhcn\\.nuget\\packages\\azure.security.keyvault.secrets\\4.6.0\\azure.security.keyvault.secrets.4.6.0.nupkg.sha512",
     "C:\\Users\\abdulhcn\\.nuget\\packages\\azure.storage.blobs\\12.23.0\\azure.storage.blobs.12.23.0.nupkg.sha512",
     "C:\\Users\\abdulhcn\\.nuget\\packages\\azure.storage.common\\12.22.0\\azure.storage.common.12.22.0.nupkg.sha512",
+    "C:\\Users\\abdulhcn\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\abdulhcn\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\abdulhcn\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.17\\microsoft.aspnetcore.authentication.jwtbearer.8.0.17.nupkg.sha512",
     "C:\\Users\\abdulhcn\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\8.0.0\\microsoft.aspnetcore.authentication.openidconnect.8.0.0.nupkg.sha512",
