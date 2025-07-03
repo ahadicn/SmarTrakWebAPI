@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace SmarTrakWebDomain.Models
 {
-    public class SubscriptionModel
+    public class CustomerSubscriptionModel
     {
         public Guid Id { get; set; }
 
-        public Guid SubscriptionId { get; set; }
-
-        public Guid CustomerId { get; set; }
-        //public string CustomerName { get; set; }
-
-        //public Guid? CustomerRefId { get; set; }
+        public Guid SubscriptionId { get; set; }            
 
         public string OfferName { get; set; } = null!;
 
@@ -51,9 +46,8 @@ namespace SmarTrakWebDomain.Models
 
         public bool? IsTrial { get; set; }
 
-        //public string? ProductId { get; set; }
+        public string? ProductId { get; set; }
 
-        //public string? SkuId { get; set; }
-
+        public string? SkuId { get; set; }
     }
 }

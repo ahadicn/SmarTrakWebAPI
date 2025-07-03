@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SmarTrakWebAPI.DBEntities;
 using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Services;
@@ -13,36 +16,134 @@ namespace SmarTrakWebData.Repositories
     public class CustomerRepository : ICustomerRepository
     {
         private readonly STContext _context;
-        public CustomerRepository(STContext context) => _context = context;
+        private readonly string _connectionString;
 
-        public async Task<IEnumerable<CustomerModel>> GetAllAsync()
+
+        public CustomerRepository(STContext context, IConfiguration configuration) 
+        { 
+            _context = context;
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
+
+        public async Task<PagedResult<CustomerModel>> GetAllAsync(string? searchTerm, int page, int pageSize)
         {
-            return await _context.Customers
+            var query = _context.Customers.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                var isGuid = Guid.TryParse(searchTerm, out Guid guid);
+                query = query.Where(c =>
+                    (isGuid && c.CustomerId == guid) ||
+                    c.Name.ToLower().Contains(searchTerm) ||
+                    c.Domain.ToLower().Contains(searchTerm));
+            }
+
+            var totalCount = await query.CountAsync();
+
+            // Apply pagination
+            //query = query
+            //    .OrderBy(c => c.Name) // sort for consistent paging
+            //    .Skip((page - 1) * pageSize)
+            //    .Take(pageSize);
+
+            var items = await query
+                .OrderBy(c => c.Name) // sort for consistent paging
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(c => new CustomerModel
                 {
                     Id = c.Id,
                     Name = c.Name,
-                    Domain = c.Domain
+                    CustomerId = c.CustomerId,
+                    Domain = c.Domain,
+                    CreatedDate = c.CreatedDate,
+                    UpdatedDate = c.UpdatedDate,
+                    CreatedBy = c.CreatedBy,
+                    UpdatedBy = c.UpdatedBy
                 })
                 .ToListAsync();
+
+            return new PagedResult<CustomerModel>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
             //=> await _context.Customers.ToListAsync();
         }
 
 
-
-
-        public async Task<CustomerModel> GetByIdAsync(Guid id)
+        public async Task<SPCustomerCountModel> GetCustomerCountAsync()
         {
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Id == id);
-            if (customer == null) return null;
-
-            return new CustomerModel
+            using (var connection = new SqlConnection(_connectionString))
             {
-                Id = customer.Id,
-                Name = customer.Name,
-                Domain = customer.Domain
+                await connection.OpenAsync();
+                return await connection.QuerySingleAsync<SPCustomerCountModel>(
+                    "sp_GetCustomerCount",
+                    commandType: System.Data.CommandType.StoredProcedure
+                );
+            }
+        }
+
+
+        public async Task<PagedResult<CustomerWithSubscriptionsModel>> GetCustomerSubscriptionsAsync(string? searchTerm, int page, int pageSize)
+        {
+            var query = _context.Customers
+                .Include(c => c.Subscriptions)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.Trim().ToLower();
+                var isGuid = Guid.TryParse(searchTerm, out Guid guid);
+
+                query = query.Where(c =>
+                    (isGuid && c.Id == guid) ||
+                    c.Name.ToLower().Contains(searchTerm) ||
+                    c.Domain.ToLower().Contains(searchTerm));
+            }
+
+            var totalCount = await query.CountAsync();
+
+            var customers = await query
+                .OrderBy(c => c.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(c => new CustomerWithSubscriptionsModel
+                {
+                    Id = c.Id,
+                    CustomerId = c.CustomerId,
+                    Name = c.Name,
+                    Domain = c.Domain,
+                    Subscriptions = c.Subscriptions.Select(s => new CustomerSubscriptionModel
+                    {
+                        Id = s.Id,
+                        SubscriptionId = s.SubscriptionId,                        
+                        OfferName = s.OfferName,
+                        Status = s.Status,
+                        Quantity = s.Quantity,
+                        UnitType = s.UnitType,
+                        BillingCycle = s.BillingCycle,
+                        BillingType = s.BillingType,
+                        AutoRenewEnabled = s.AutoRenewEnabled,
+                        EffectiveStartDate = s.EffectiveStartDate,
+                        CommitmentEndDate = s.CommitmentEndDate,
+                        TermDuration = s.TermDuration,
+                        IsTrial = s.IsTrial,
+                        CreatedDate = s.CreatedDate,
+                        StartedDate = s.StartedDate,
+                        CreatedAt = s.CreatedAt,
+                        UpdatedAt = s.UpdatedAt,
+                        CreatedBy = s.CreatedBy,
+                        UpdatedBy = s.UpdatedBy
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return new PagedResult<CustomerWithSubscriptionsModel>
+            {
+                Items = customers,
+                TotalCount = totalCount
             };
-            //=>  await _context.Customers.FindAsync(id);
         }
 
 
