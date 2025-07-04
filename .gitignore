@@ -6,3 +6,31 @@
 /SmarTrakWebAPI/obj/
 /SmarTrakWebAPI/.vs
 /SmarTrakWebAPI/appsettings.Development.json
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Build results
+**/bin/
+**/obj/
+*.log
+
+# User-specific files
+*.rsuser
+*.sln.docstates
+
+# Rider/JetBrains
+.idea/
+
+# System files
+Thumbs.db
+.DS_Store
+
+# Others
+*.vsidx
+*.dbmdl
+*.swp
+
+# Local config
+**/appsettings.Development.json
