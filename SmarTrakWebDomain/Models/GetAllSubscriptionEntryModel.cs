@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmarTrakWebDomain.Models
 {
-    public class GetAllSubscriptionResponseModel
+    public class GetAllSubscriptionEntryModel
     {
         public string? SearchTerm { get; set; }
 

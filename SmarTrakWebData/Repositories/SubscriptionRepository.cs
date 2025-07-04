@@ -23,41 +23,41 @@ namespace SmarTrakWebData.Repositories
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<PagedResult<SubscriptionModel>> GetAllSubscriptionsAsync(GetAllSubscriptionResponseModel p)
+        public async Task<PagedResult<SubscriptionModel>> GetAllSubscriptionsAsync(GetAllSubscriptionEntryModel model)
         {
             var query = _context.Subscriptions.AsQueryable();
 
             // Text search
-            if (!string.IsNullOrWhiteSpace(p.SearchTerm))
+            if (!string.IsNullOrWhiteSpace(model.SearchTerm))
             {
-                var term = p.SearchTerm.Trim().ToLower();
+                var term = model.SearchTerm.Trim().ToLower();
                 query = query.Where(s =>
                     s.OfferName.ToLower().Contains(term) ||
                     s.Status.ToLower().Contains(term));
             }
 
             // Filters
-            if (!string.IsNullOrWhiteSpace(p.Status)) query = query.Where(s => s.Status == p.Status);
-            if (!string.IsNullOrWhiteSpace(p.UnitType)) query = query.Where(s => s.UnitType == p.UnitType);
-            if (!string.IsNullOrWhiteSpace(p.BillingCycle)) query = query.Where(s => s.BillingCycle == p.BillingCycle);
-            if (!string.IsNullOrWhiteSpace(p.BillingType)) query = query.Where(s => s.BillingType == p.BillingType);
-            if (p.AutoRenewal.HasValue) query = query.Where(s => s.AutoRenewEnabled == p.AutoRenewal);
-            if (!string.IsNullOrWhiteSpace(p.TermDuration)) query = query.Where(s => s.TermDuration == p.TermDuration);
-            if (p.IsTrial.HasValue) query = query.Where(s => s.IsTrial == p.IsTrial);
+            if (!string.IsNullOrWhiteSpace(model.Status)) query = query.Where(s => s.Status == model.Status);
+            if (!string.IsNullOrWhiteSpace(model.UnitType)) query = query.Where(s => s.UnitType == model.UnitType);
+            if (!string.IsNullOrWhiteSpace(model.BillingCycle)) query = query.Where(s => s.BillingCycle == model.BillingCycle);
+            if (!string.IsNullOrWhiteSpace(model.BillingType)) query = query.Where(s => s.BillingType == model.BillingType);
+            if (model.AutoRenewal.HasValue) query = query.Where(s => s.AutoRenewEnabled == model.AutoRenewal);
+            if (!string.IsNullOrWhiteSpace(model.TermDuration)) query = query.Where(s => s.TermDuration == model.TermDuration);
+            if (model.IsTrial.HasValue) query = query.Where(s => s.IsTrial == model.IsTrial);
 
             // Date Range Filters
-            if (p.CreatedDateFrom.HasValue) query = query.Where(s => s.CreatedDate >= p.CreatedDateFrom.Value);
-            if (p.CreatedDateTo.HasValue) query = query.Where(s => s.CreatedDate <= p.CreatedDateTo.Value);
-            if (p.StartedDateFrom.HasValue) query = query.Where(s => s.StartedDate >= p.StartedDateFrom.Value);
-            if (p.StartedDateTo.HasValue) query = query.Where(s => s.StartedDate <= p.StartedDateTo.Value);
-            if (p.CommitmentEndDateFrom.HasValue) query = query.Where(s => s.CommitmentEndDate >= p.CommitmentEndDateFrom.Value);
-            if (p.CommitmentEndDateTo.HasValue) query = query.Where(s => s.CommitmentEndDate <= p.CommitmentEndDateTo.Value);
-            if (p.EffectiveStartDateFrom.HasValue) query = query.Where(s => s.EffectiveStartDate >= p.EffectiveStartDateFrom.Value);
-            if (p.EffectiveStartDateTo.HasValue) query = query.Where(s => s.EffectiveStartDate <= p.EffectiveStartDateTo.Value);
+            if (model.CreatedDateFrom.HasValue) query = query.Where(s => s.CreatedDate >= model.CreatedDateFrom.Value);
+            if (model.CreatedDateTo.HasValue) query = query.Where(s => s.CreatedDate <= model.CreatedDateTo.Value);
+            if (model.StartedDateFrom.HasValue) query = query.Where(s => s.StartedDate >= model.StartedDateFrom.Value);
+            if (model.StartedDateTo.HasValue) query = query.Where(s => s.StartedDate <= model.StartedDateTo.Value);
+            if (model.CommitmentEndDateFrom.HasValue) query = query.Where(s => s.CommitmentEndDate >= model.CommitmentEndDateFrom.Value);
+            if (model.CommitmentEndDateTo.HasValue) query = query.Where(s => s.CommitmentEndDate <= model.CommitmentEndDateTo.Value);
+            if (model.EffectiveStartDateFrom.HasValue) query = query.Where(s => s.EffectiveStartDate >= model.EffectiveStartDateFrom.Value);
+            if (model.EffectiveStartDateTo.HasValue) query = query.Where(s => s.EffectiveStartDate <= model.EffectiveStartDateTo.Value);
 
             // Sorting
-            var sortField = p.SortBy?.ToLower();
-            bool descending = p.SortOrder?.ToLower() == "desc";
+            var sortField = model.SortBy?.ToLower();
+            bool descending = model.SortOrder?.ToLower() == "desc";
 
             query = sortField switch
             {
@@ -76,8 +76,8 @@ namespace SmarTrakWebData.Repositories
             // Pagination
             var total = await query.CountAsync();
             var items = await query
-                .Skip((p.Page - 1) * p.PageSize)
-                .Take(p.PageSize)
+                .Skip((model.Page - 1) * model.PageSize)
+                .Take(model.PageSize)
                 .Select(s => new SubscriptionModel
                 {
                     Id = s.Id,
@@ -123,6 +123,8 @@ namespace SmarTrakWebData.Repositories
                     Id = s.Id,
                     SubscriptionId = s.SubscriptionId,
                     CustomerId = s.CustomerId,
+                    CustomerName = s.Customer.Name,
+                    CustomerRefId = s.CustomerRefId,
                     OfferName = s.OfferName,
                     Status = s.Status,
                     Quantity = s.Quantity,

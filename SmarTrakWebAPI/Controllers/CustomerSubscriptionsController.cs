@@ -26,7 +26,7 @@ namespace SmarTrakWebAPI.Controllers
         }
 
         [HttpGet("GetAllSubscriptions")]
-        public async Task<IActionResult> GetAllSubscriptions([FromQuery] GetAllSubscriptionResponseModel parameters)
+        public async Task<IActionResult> GetAllSubscriptions([FromQuery] GetAllSubscriptionEntryModel parameters)
         {
             try
             {
@@ -41,12 +41,12 @@ namespace SmarTrakWebAPI.Controllers
 
 
         // GET: api/CustomerSubscriptions/{customerId}/subscriptions
-        [HttpGet("{customerId}/subscriptions")]
-        public async Task<IActionResult> GetSubscriptionsByCustomer(Guid customerId)
+        [HttpGet("{customerId}")]
+        public async Task<IActionResult> GetSubscriptionsByCustomer(Guid Id)
         {
             try
             {
-                var result = await _subscriptionService.GetSubscriptionsByCustomerAsync(customerId);
+                var result = await _subscriptionService.GetSubscriptionsByCustomerAsync(Id);
                 if (result == null)
                     return NotFound(new { error = "Customer not found" });
 
