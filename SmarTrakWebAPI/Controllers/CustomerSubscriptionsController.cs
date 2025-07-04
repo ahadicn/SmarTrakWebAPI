@@ -40,8 +40,8 @@ namespace SmarTrakWebAPI.Controllers
         }
 
 
-        // GET: api/CustomerSubscriptions/{customerId}/subscriptions
-        [HttpGet("{customerId}")]
+        // GET: api/CustomerSubscriptions/{CustomerId}/
+        [HttpGet("{Id}")]
         public async Task<IActionResult> GetSubscriptionsByCustomer(Guid Id)
         {
             try

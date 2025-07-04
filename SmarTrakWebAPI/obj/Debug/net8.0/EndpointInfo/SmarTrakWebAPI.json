@@ -271,7 +271,7 @@
         }
       }
     },
-    "/api/CustomerSubscriptions/{customerId}": {
+    "/api/CustomerSubscriptions/{Id}": {
       "get": {
         "tags": [
           "CustomerSubscriptions"
@@ -279,18 +279,11 @@
         "parameters": [
           {
             "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "customerId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],

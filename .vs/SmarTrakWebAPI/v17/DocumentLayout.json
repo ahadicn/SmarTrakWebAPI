@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|solutionrelative:smartrakwebapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebapi\\controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|solutionrelative:smartrakwebapi\\controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{751359A4-A72A-44D0-AA19-041D8077C70E}|SmarTrakWebService\\SmarTrakWebService.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebservice\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{751359A4-A72A-44D0-AA19-041D8077C70E}|SmarTrakWebService\\SmarTrakWebService.csproj|solutionrelative:smartrakwebservice\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}|SmarTrakWebData\\SmarTrakWebData.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebdata\\repositories\\subscriptionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E8E4D6A9-D46F-47AB-9D9E-686D0A4171FB}|SmarTrakWebData\\SmarTrakWebData.csproj|solutionrelative:smartrakwebdata\\repositories\\subscriptionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{868596D1-B695-47DC-8B5C-15B499C4609D}|SmarTrakWebDomain\\SmarTrakWebDomain.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebdomain\\models\\subscriptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{868596D1-B695-47DC-8B5C-15B499C4609D}|SmarTrakWebDomain\\SmarTrakWebDomain.csproj|solutionrelative:smartrakwebdomain\\models\\subscriptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebapi\\controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|solutionrelative:smartrakwebapi\\controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{751359A4-A72A-44D0-AA19-041D8077C70E}|SmarTrakWebService\\SmarTrakWebService.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebservice\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{751359A4-A72A-44D0-AA19-041D8077C70E}|SmarTrakWebService\\SmarTrakWebService.csproj|solutionrelative:smartrakwebservice\\subscriptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|solutionrelative:smartrakwebapi\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{868596D1-B695-47DC-8B5C-15B499C4609D}|SmarTrakWebDomain\\SmarTrakWebDomain.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebdomain\\models\\subscriptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{868596D1-B695-47DC-8B5C-15B499C4609D}|SmarTrakWebDomain\\SmarTrakWebDomain.csproj|solutionrelative:smartrakwebdomain\\models\\subscriptionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9B776207-5C59-4169-9815-343E2DAA3C25}|SmarTrakWebAPI\\SmarTrakWebAPI.csproj|e:\\smartrak\\smartrackweb\\smartrakwebapi\\smartrakwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -107,6 +107,75 @@
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SubscriptionModel.cs",
+              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
+              "RelativeDocumentMoniker": "SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
+              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
+              "RelativeToolTip": "SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T11:45:01.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubscriptionService.cs",
+              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebService\\SubscriptionService.cs",
+              "RelativeDocumentMoniker": "SmarTrakWebService\\SubscriptionService.cs",
+              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebService\\SubscriptionService.cs*",
+              "RelativeToolTip": "SmarTrakWebService\\SubscriptionService.cs*",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAywBsAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T19:01:48.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubscriptionRepository.cs",
+              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
+              "RelativeDocumentMoniker": "SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
+              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\Repositories\\SubscriptionRepository.cs*",
+              "RelativeToolTip": "SmarTrakWebData\\Repositories\\SubscriptionRepository.cs*",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAUwHYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T11:12:06.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerSubscriptionsController.cs",
+              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
+              "RelativeDocumentMoniker": "SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
+              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
+              "RelativeToolTip": "SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwDAAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T11:58:31.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "SmarTrakWebAPI\\Controllers\\CustomerController.cs",
+              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "SmarTrakWebAPI\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T12:01:42.665Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -123,71 +192,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SubscriptionModel.cs",
-              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
-              "RelativeDocumentMoniker": "SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
-              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
-              "RelativeToolTip": "SmarTrakWebDomain\\Models\\SubscriptionModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T11:45:01.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SubscriptionService.cs",
-              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebService\\SubscriptionService.cs",
-              "RelativeDocumentMoniker": "SmarTrakWebService\\SubscriptionService.cs",
-              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebService\\SubscriptionService.cs",
-              "RelativeToolTip": "SmarTrakWebService\\SubscriptionService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBsAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T19:01:48.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SubscriptionRepository.cs",
-              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
-              "RelativeDocumentMoniker": "SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
-              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
-              "RelativeToolTip": "SmarTrakWebData\\Repositories\\SubscriptionRepository.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T11:12:06.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerSubscriptionsController.cs",
-              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
-              "RelativeDocumentMoniker": "SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
-              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
-              "RelativeToolTip": "SmarTrakWebAPI\\Controllers\\CustomerSubscriptionsController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAwBEAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T11:58:31.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "SmarTrakWebAPI\\Controllers\\CustomerController.cs",
-              "ToolTip": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebAPI\\Controllers\\CustomerController.cs*",
-              "RelativeToolTip": "SmarTrakWebAPI\\Controllers\\CustomerController.cs*",
-              "ViewState": "AgIAABcAAAAAAAAAAAAiwCgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T12:01:42.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "CustomerModel.cs",
               "DocumentMoniker": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\Models\\CustomerModel.cs",
@@ -198,10 +202,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T11:39:23.819Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",

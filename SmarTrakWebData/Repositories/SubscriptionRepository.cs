@@ -113,10 +113,10 @@ namespace SmarTrakWebData.Repositories
 
 
 
-        public async Task<IEnumerable<SubscriptionModel>> GetByCustomerIdAsync(Guid customerId)
+        public async Task<IEnumerable<SubscriptionModel>> GetByCustomerIdAsync(Guid Id)
         {
             return await _context.Subscriptions
-                .Where(s => s.CustomerId == customerId)
+                .Where(s => s.CustomerId == Id)
                 .Include(s => s.Customer)
                 .Select(s => new SubscriptionModel
                 {

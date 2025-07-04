@@ -23,9 +23,9 @@ namespace SmarTrakWebService
         }
 
 
-        public async Task<IEnumerable<SubscriptionModel>> GetSubscriptionsByCustomerAsync(Guid customerId)
+        public async Task<IEnumerable<SubscriptionModel>> GetSubscriptionsByCustomerAsync(Guid Id)
         {
-            return await _subscriptionRepository.GetByCustomerIdAsync(customerId);
+            return await _subscriptionRepository.GetByCustomerIdAsync(Id);
         }
 
         public async Task<SPSubscriptionCountModel> GetSubscriptionCountAsync()
