@@ -64,14 +64,19 @@
   {
     "ContainingType": "SmarTrakWebAPI.Controllers.CustomerSubscriptionsController",
     "Method": "GetSubscriptionsByCustomer",
-    "RelativePath": "api/CustomerSubscriptions/{customerId}/subscriptions",
+    "RelativePath": "api/CustomerSubscriptions/{customerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customerId",
+        "Name": "Id",
         "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "customerId",
+        "Type": "",
         "IsRequired": true
       }
     ],

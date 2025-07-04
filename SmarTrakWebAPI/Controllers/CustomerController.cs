@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmarTrakWebAPI.DBEntities;
 using SmarTrakWebDomain.Services;
@@ -22,6 +23,7 @@ namespace SmarTrakWebAPI.Controllers
         }
 
         // GET: api/Customer
+        [Authorize]
         [HttpGet("GetAllCustomer")]
         public async Task<IActionResult> GetAllCustomers([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
