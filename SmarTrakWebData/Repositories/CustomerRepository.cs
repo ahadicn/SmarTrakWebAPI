@@ -81,7 +81,7 @@ namespace SmarTrakWebData.Repositories
         public async Task<CustomerModel?> GetCustomerByIdAsync(Guid id)
         {
             return await _context.Customers
-                .Where(c => c.CustomerId == id)
+                .Where(c => c.Id == id)
                 .Select(c => new CustomerModel
                 {
                     Id = c.Id,
