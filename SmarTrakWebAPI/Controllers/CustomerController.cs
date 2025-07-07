@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SmarTrakWebAPI.DBEntities;
+using SmarTrakWebDomain.EntryModels;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebDomain.ViewModels;
 using SmarTrakWebService;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace SmarTrakWebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerController : ControllerBase
@@ -27,13 +29,12 @@ namespace SmarTrakWebAPI.Controllers
         }
 
         // GET: api/Customer
-        [Authorize]
-        [HttpGet("GetAllCustomer")]
-        public async Task<IActionResult> GetAllCustomers([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        [HttpGet("ListCustomer")]
+        public async Task<IActionResult> GetAllCustomers([FromQuery] CustomerListEntryModel input)
         {
             try
             {
-                var result = await _customerService.GetAllCustomersAsync(searchTerm, page, pageSize);
+                var result = await _customerService.GetAllCustomersAsync(input);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -42,22 +43,30 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet("CustomerCount")]
-        public async Task<IActionResult> GetCustomerCountAsync()
+        [HttpGet("GetCustomer/{id}")]
+        public async Task<IActionResult> GetCustomerById(Guid id)
         {
             try
             {
-                var metrics = await _customerService.GetCustomerCountAsync();
-                return Ok(metrics);
+                var customer = await _customerService.GetCustomerByIdAsync(id);
+
+                if (customer == null)
+                    return NotFound(new { message = $"Customer with ID {id} not found." });
+
+                return Ok(customer);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Error = "Server error", Details = ex.Message });
+                return StatusCode(500, new
+                {
+                    error = "Failed to fetch customer details",
+                    message = ex.Message
+                });
             }
         }
 
-        [Authorize]
+
+       
         [HttpGet("GetCustomerWithSubscriptions")]
         public async Task<IActionResult> GetCustomerSubscriptions([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {

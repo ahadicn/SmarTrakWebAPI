@@ -12,7 +12,7 @@ namespace SmarTrakWebDomain.Repositories
     public interface ISubscriptionRepository
     {
         Task<PagedResult<SubscriptionModel>> GetAllSubscriptionsAsync(GetAllSubscriptionEntryModel parameter);
-        Task<IEnumerable<SubscriptionModel>> GetByCustomerIdAsync(Guid customerId);
+        Task<IEnumerable<SubscriptionModel>> GetSubscriptionById(Guid Id);
         Task<SPSubscriptionCountModel> GetSubscriptionCountAsync();
         Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync();
     }

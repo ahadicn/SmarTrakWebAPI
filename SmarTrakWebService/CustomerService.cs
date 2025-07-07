@@ -1,4 +1,5 @@
-﻿using SmarTrakWebDomain.Models;
+﻿using SmarTrakWebDomain.EntryModels;
+using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Repositories;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebDomain.ViewModels;
@@ -20,10 +21,16 @@ namespace SmarTrakWebService
             _customerRepository = customerRepo;
         }
 
-        public async Task<PagedResult<CustomerModel>> GetAllCustomersAsync(string? searchTerm, int page, int pageSize)
+        public async Task<PagedResult<CustomerModel>> GetAllCustomersAsync(CustomerListEntryModel input)
         {
-            return await _customerRepository.GetAllAsync(searchTerm, page, pageSize);
+            return await _customerRepository.GetAllCustomersAsync(input);
         }
+        public async Task<CustomerModel?> GetCustomerByIdAsync(Guid id)
+        {
+            return await _customerRepository.GetCustomerByIdAsync(id);
+        }
+
+
 
         public async Task<SPCustomerCountModel> GetCustomerCountAsync()
         {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmarTrakWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f2cf7f3ef07c8521b95ca39b378fb7d9b4e6a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06b3549d01ce56ff11d9c686c1c43fc3bcd53ca7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmarTrakWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmarTrakWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

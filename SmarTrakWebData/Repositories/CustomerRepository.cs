@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SmarTrakWebAPI.DBEntities;
+using SmarTrakWebDomain.EntryModels;
 using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebDomain.ViewModels;
@@ -27,31 +28,36 @@ namespace SmarTrakWebData.Repositories
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        public async Task<PagedResult<CustomerModel>> GetAllAsync(string? searchTerm, int page, int pageSize)
+        public async Task<PagedResult<CustomerModel>> GetAllCustomersAsync(CustomerListEntryModel input)
         {
             var query = _context.Customers.AsQueryable();
-            if (!string.IsNullOrWhiteSpace(searchTerm))
+
+            if (!string.IsNullOrWhiteSpace(input.SearchTerm))
             {
-                searchTerm = searchTerm.ToLower();
-                var isGuid = Guid.TryParse(searchTerm, out Guid guid);
+                var search = input.SearchTerm.ToLower();
+                var isGuid = Guid.TryParse(input.SearchTerm, out Guid guid);
                 query = query.Where(c =>
                     (isGuid && c.CustomerId == guid) ||
-                    c.Name.ToLower().Contains(searchTerm) ||
-                    c.Domain.ToLower().Contains(searchTerm));
+                    c.Name.ToLower().Contains(search) ||
+                    c.Domain.ToLower().Contains(search));
             }
 
             var totalCount = await query.CountAsync();
 
-            // Apply pagination
-            //query = query
-            //    .OrderBy(c => c.Name) // sort for consistent paging
-            //    .Skip((page - 1) * pageSize)
-            //    .Take(pageSize);
+            // Sorting
+            var sortField = input.SortBy?.ToLower();
+            bool descending = input.SortOrder?.ToLower() == "desc";
+
+            query = sortField switch
+            {
+                "name" => descending ? query.OrderByDescending(c => c.Name) : query.OrderBy(c => c.Name),
+                "domain" => descending ? query.OrderByDescending(c => c.Domain) : query.OrderBy(c => c.Domain),
+                _ => query.OrderBy(c => c.Name) // default sort
+            };
 
             var items = await query
-                .OrderBy(c => c.Name) // sort for consistent paging
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+                .Skip((input.Page - 1) * input.PageSize)
+                .Take(input.PageSize)
                 .Select(c => new CustomerModel
                 {
                     Id = c.Id,
@@ -70,8 +76,26 @@ namespace SmarTrakWebData.Repositories
                 Items = items,
                 TotalCount = totalCount
             };
-            //=> await _context.Customers.ToListAsync();
         }
+
+        public async Task<CustomerModel?> GetCustomerByIdAsync(Guid id)
+        {
+            return await _context.Customers
+                .Where(c => c.CustomerId == id)
+                .Select(c => new CustomerModel
+                {
+                    Id = c.Id,
+                    CustomerId = c.CustomerId,
+                    Name = c.Name,
+                    Domain = c.Domain,
+                    CreatedDate = c.CreatedDate,
+                    UpdatedDate = c.UpdatedDate,
+                    CreatedBy = c.CreatedBy,
+                    UpdatedBy = c.UpdatedBy
+                })
+                .FirstOrDefaultAsync();
+        }
+
 
 
         public async Task<SPCustomerCountModel> GetCustomerCountAsync()

@@ -15,17 +15,17 @@ namespace SmarTrakWebAPI.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class CustomerSubscriptionsController : ControllerBase
+    public class SubscriptionsController : ControllerBase
     {
         private readonly ISubscriptionService _subscriptionService;
 
 
-        public CustomerSubscriptionsController(ISubscriptionService subscriptionService)
+        public SubscriptionsController(ISubscriptionService subscriptionService)
         {
             _subscriptionService = subscriptionService;
         }
 
-        [HttpGet("GetAllSubscriptions")]
+        [HttpGet("ListSubscription")]
         public async Task<IActionResult> GetAllSubscriptions([FromQuery] GetAllSubscriptionEntryModel parameters)
         {
             try
@@ -41,12 +41,12 @@ namespace SmarTrakWebAPI.Controllers
 
 
         // GET: api/CustomerSubscriptions/{CustomerId}/
-        [HttpGet("{Id}")]
-        public async Task<IActionResult> GetSubscriptionsByCustomer(Guid Id)
+        [HttpGet("GetSubscription/{Id}")]
+        public async Task<IActionResult> GetSubscriptionById(Guid Id)
         {
             try
             {
-                var result = await _subscriptionService.GetSubscriptionsByCustomerAsync(Id);
+                var result = await _subscriptionService.GetSubscriptionById(Id);
                 if (result == null)
                     return NotFound(new { error = "Customer not found" });
 
@@ -57,39 +57,6 @@ namespace SmarTrakWebAPI.Controllers
                 return StatusCode(500, new { error = "Failed to fetch subscriptions", message = ex.Message });
             }
         }
-
-        [HttpGet("SubscriptionCount")]
-        public async Task<IActionResult> GetSubscriptionCountAsync()
-        {
-            try
-            {
-                var metrics = await _subscriptionService.GetSubscriptionCountAsync();
-                return Ok(metrics);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Error = "Server error", Details = ex.Message });
-            }
-        }
-
-        [HttpGet("SubscriptionCalendar")]
-        public async Task<IActionResult> GetSubscriptionContractCalendar()
-        {
-            try
-            {
-                var data = await _subscriptionService.GetSubscriptionCalendarAsync();
-                return Ok(data);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new
-                {
-                    error = "Failed to load subscription contract calendar",
-                    message = ex.Message
-                });
-            }
-        }
-                  
 
 
     }
