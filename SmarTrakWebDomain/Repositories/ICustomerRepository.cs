@@ -1,4 +1,5 @@
 ﻿using SmarTrakWebDomain.Models;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

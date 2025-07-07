@@ -1,4 +1,6 @@
-﻿using SmarTrakWebDomain.Models;
+﻿using SmarTrakWebDomain.EntryModels;
+using SmarTrakWebDomain.Models;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +14,7 @@ namespace SmarTrakWebDomain.Services
         Task<PagedResult<SubscriptionModel>> GetAllSubscriptionsAsync(GetAllSubscriptionEntryModel parameters);
         Task<IEnumerable<SubscriptionModel>> GetSubscriptionsByCustomerAsync(Guid customerId);
         Task<SPSubscriptionCountModel> GetSubscriptionCountAsync();
+        Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync();
+        
     }
 }

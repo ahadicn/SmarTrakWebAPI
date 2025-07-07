@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SmarTrakWebAPI.DBEntities;
 using SmarTrakWebDomain.Services;
+using SmarTrakWebDomain.ViewModels;
+using SmarTrakWebService;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,7 +42,7 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpGet("CustomerCount")]
         public async Task<IActionResult> GetCustomerCountAsync()
         {
@@ -53,6 +57,7 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("GetCustomerWithSubscriptions")]
         public async Task<IActionResult> GetCustomerSubscriptions([FromQuery] string? searchTerm, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
@@ -66,7 +71,7 @@ namespace SmarTrakWebAPI.Controllers
                 return StatusCode(500, new { error = "An error occurred while fetching customer subscriptions", message = ex.Message });
             }
         }
-
+               
 
 
 

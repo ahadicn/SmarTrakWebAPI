@@ -190,6 +190,16 @@
   },
   {
     "ContainingType": "SmarTrakWebAPI.Controllers.CustomerSubscriptionsController",
+    "Method": "GetSubscriptionContractCalendar",
+    "RelativePath": "api/CustomerSubscriptions/SubscriptionCalendar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmarTrakWebAPI.Controllers.CustomerSubscriptionsController",
     "Method": "GetSubscriptionCountAsync",
     "RelativePath": "api/CustomerSubscriptions/SubscriptionCount",
     "HttpMethod": "GET",

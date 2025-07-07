@@ -10,8 +10,14 @@ namespace SmarTrakWebDomain.Models
     {
         public int TotalSubscriptionCount { get; set; }
         public int ActiveSubscriptionCount { get; set; }        
-        public int AutoRenewSubscriptionCount { get; set; }
-        public int AutoRenewalSubscriptionCount { get; set; }
-        public int ManualRenewalSubscriptionCount { get; set; }
+        public int ExpiredSubscriptionCount { get; set; }
+        public int SuspendedSubscriptionCount { get; set; }
+        public int DeletedSubscriptionCount { get; set; }
+        public int DisabledSubscriptionCount { get; set; }
+
+        public int AutoRenew { get; set; }
+        public int Unused { get; set; }
+        public int Renewal { get; set; }
+
     }
 }

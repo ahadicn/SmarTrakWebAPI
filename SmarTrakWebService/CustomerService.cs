@@ -1,6 +1,7 @@
 ﻿using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Repositories;
 using SmarTrakWebDomain.Services;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace SmarTrakWebService
         {
             return await _customerRepository.GetCustomerSubscriptionsAsync(searchTerm, page, pageSize);
         }
-
+                
 
     }
 

@@ -3,10 +3,13 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SmarTrakWebAPI.DBEntities;
+using SmarTrakWebDomain.EntryModels;
 using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Repositories;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -160,6 +163,19 @@ namespace SmarTrakWebData.Repositories
             }
         }
 
+
+        public async Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync()
+        {
+            using var connection = new SqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            var result = await connection.QueryAsync<SubscriptionCalendarViewModel>(
+                "GetSubscriptionCalendar",
+                commandType: CommandType.StoredProcedure
+            );
+
+            return result.ToList();
+        }
 
     }
 }

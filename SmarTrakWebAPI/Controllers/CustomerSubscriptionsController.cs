@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmarTrakWebAPI.DBEntities;
-using SmarTrakWebDomain.Models;
+using SmarTrakWebDomain.EntryModels;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebService;
 using System;
@@ -11,12 +12,11 @@ using System.Threading.Tasks;
 
 namespace SmarTrakWebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerSubscriptionsController : ControllerBase
     {
-        //private readonly STContext _context;
-
         private readonly ISubscriptionService _subscriptionService;
 
 
@@ -72,7 +72,25 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
-        
-        
+        [HttpGet("SubscriptionCalendar")]
+        public async Task<IActionResult> GetSubscriptionContractCalendar()
+        {
+            try
+            {
+                var data = await _subscriptionService.GetSubscriptionCalendarAsync();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = "Failed to load subscription contract calendar",
+                    message = ex.Message
+                });
+            }
+        }
+                  
+
+
     }
 }

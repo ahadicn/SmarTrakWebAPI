@@ -5,8 +5,10 @@ using Microsoft.Extensions.Configuration;
 using SmarTrakWebAPI.DBEntities;
 using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Services;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,6 +147,8 @@ namespace SmarTrakWebData.Repositories
                 TotalCount = totalCount
             };
         }
+
+
 
 
     }

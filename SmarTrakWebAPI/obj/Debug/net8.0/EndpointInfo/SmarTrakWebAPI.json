@@ -306,6 +306,18 @@
         }
       }
     },
+    "/api/CustomerSubscriptions/SubscriptionCalendar": {
+      "get": {
+        "tags": [
+          "CustomerSubscriptions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/files/upload": {
       "post": {
         "tags": [

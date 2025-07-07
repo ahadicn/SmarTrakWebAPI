@@ -1,4 +1,5 @@
 ﻿using SmarTrakWebDomain.Models;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace SmarTrakWebDomain.Services
         Task<PagedResult<CustomerModel>> GetAllCustomersAsync(string? searchTerm, int page, int pageSize);
         Task<SPCustomerCountModel> GetCustomerCountAsync();
         Task<PagedResult<CustomerWithSubscriptionsModel>> GetCustomerSubscriptionsAsync(string? searchTerm, int page, int pageSize);
+
     }
 }

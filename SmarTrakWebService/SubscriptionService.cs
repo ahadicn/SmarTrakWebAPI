@@ -1,6 +1,8 @@
-﻿using SmarTrakWebDomain.Models;
+﻿using SmarTrakWebDomain.EntryModels;
+using SmarTrakWebDomain.Models;
 using SmarTrakWebDomain.Repositories;
 using SmarTrakWebDomain.Services;
+using SmarTrakWebDomain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,11 @@ namespace SmarTrakWebService
         public async Task<SPSubscriptionCountModel> GetSubscriptionCountAsync()
         {
             return await _subscriptionRepository.GetSubscriptionCountAsync();
+        }
+
+        public async Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync()
+        {
+            return await _subscriptionRepository.GetSubscriptionCalendarAsync();
         }
     }
 }
