@@ -11,6 +11,7 @@ using SmarTrakWebData.Repositories;
 using SmarTrakWebDomain.Repositories;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebService;
+using Microsoft.AspNetCore.Authentication;
 //using SmarTrakWebAPI.Middleware;
 
 
@@ -113,10 +114,15 @@ builder.Services.AddDbContext<STContext>(options =>
         sqlOptions => sqlOptions.EnableRetryOnFailure()
     ));
 
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
+builder.Services.AddScoped<IUserAuthenticationRepository, UserAuthenticationRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
+
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

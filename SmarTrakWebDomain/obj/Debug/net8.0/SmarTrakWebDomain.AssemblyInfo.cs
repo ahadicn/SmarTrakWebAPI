@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmarTrakWebDomain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06b3549d01ce56ff11d9c686c1c43fc3bcd53ca7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7abf6dbf9b9670e86f6786ab798997951b8e8ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmarTrakWebDomain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmarTrakWebDomain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,18 +5,6 @@
     "version": "v1"
   },
   "paths": {
-    "/verify-authorized": {
-      "get": {
-        "tags": [
-          "Authentication"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Customer/ListCustomer": {
       "get": {
         "tags": [
@@ -273,6 +261,30 @@
               "format": "uuid"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/verify-authorized": {
+      "get": {
+        "tags": [
+          "UserAuthentication"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/assign-role": {
+      "post": {
+        "tags": [
+          "UserAuthentication"
         ],
         "responses": {
           "200": {

@@ -186,7 +186,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SmarTrakWebAPI.Controllers.AuthenticationController",
+    "ContainingType": "SmarTrakWebAPI.Controllers.UserAuthenticationController",
+    "Method": "AssignRole",
+    "RelativePath": "assign-role",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmarTrakWebAPI.Controllers.UserAuthenticationController",
     "Method": "VerifyAuthorized",
     "RelativePath": "verify-authorized",
     "HttpMethod": "GET",
