@@ -195,6 +195,14 @@
             }
           },
           {
+            "name": "SearchCustomerId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
             "name": "Status",
             "in": "query",
             "schema": {
@@ -269,7 +277,7 @@
         }
       }
     },
-    "/api/Subscriptions/TopSubscription": {
+    "/api/Subscriptions/TopSubscriptions": {
       "get": {
         "tags": [
           "Subscriptions"

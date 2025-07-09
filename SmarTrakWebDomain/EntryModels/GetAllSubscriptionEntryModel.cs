@@ -9,6 +9,7 @@ namespace SmarTrakWebDomain.EntryModels
     public class GetAllSubscriptionEntryModel
     {
         public string? SearchTerm { get; set; }
+        public Guid? SearchCustomerId { get; set; }
 
         public string? Status { get; set; }
         public bool? AutoRenewal { get; set; }

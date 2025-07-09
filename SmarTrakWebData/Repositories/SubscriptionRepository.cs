@@ -30,6 +30,13 @@ namespace SmarTrakWebData.Repositories
         {
             var query = _context.Subscriptions.AsQueryable();
 
+
+            // CustomerId filter via a separate param
+            if (model.SearchCustomerId.HasValue && model.SearchCustomerId != Guid.Empty)
+            {
+                query = query.Where(s => s.CustomerId == model.SearchCustomerId.Value);
+            }
+
             // Text search
             if (!string.IsNullOrWhiteSpace(model.SearchTerm))
             {
@@ -37,9 +44,11 @@ namespace SmarTrakWebData.Repositories
                 var isGuid = Guid.TryParse(model.SearchTerm, out Guid guidTerm);
 
                 query = query.Where(s =>
-                    (isGuid && (s.CustomerId == guidTerm )) ||
+                    (isGuid && (s.SubscriptionId == guidTerm )) ||
                     s.OfferName.ToLower().Contains(term) ||
-                    s.Status.ToLower().Contains(term));
+                    s.Status.ToLower().Contains(term) ||
+                    s.Customer.Name.ToLower().Contains(term));
+                    
             }
 
             // Filters
