@@ -8,10 +8,13 @@
 /SmarTrakWebAPI/appsettings.Development.json
 # Visual Studio files
 .vs/
+**/.vs/
 *.user
 *.suo
 
 # Build results
+bin/
+obj/
 **/bin/
 **/obj/
 *.log
