@@ -58,6 +58,23 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
+        [HttpGet("TopSubscriptions")]
+        public async Task<IActionResult> GetTopExpiringSubscriptions([FromQuery] int rowCount = 5)
+        {
+            try
+            {
+                var result = await _subscriptionService.GetTopExpiringSubscriptionsAsync(rowCount);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = "Failed to load top expiring subscriptions",
+                    message = ex.Message
+                });
+            }
+        }
 
     }
 }

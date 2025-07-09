@@ -186,6 +186,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SmarTrakWebAPI.Controllers.SubscriptionsController",
+    "Method": "GetTopExpiringSubscriptions",
+    "RelativePath": "api/Subscriptions/TopSubscription",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rowCount",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SmarTrakWebAPI.Controllers.UserAuthenticationController",
     "Method": "AssignRole",
     "RelativePath": "AssignRole",

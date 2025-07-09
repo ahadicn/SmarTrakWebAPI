@@ -39,5 +39,11 @@ namespace SmarTrakWebService
         {
             return await _subscriptionRepository.GetSubscriptionCalendarAsync();
         }
+
+        public async Task<List<TopExpiringSubscriptionViewModel>> GetTopExpiringSubscriptionsAsync(int rowCount)
+        {
+            return await _subscriptionRepository.GetTopExpiringSubscriptionsAsync(rowCount);
+        }
+
     }
 }

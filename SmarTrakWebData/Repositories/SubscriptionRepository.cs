@@ -160,5 +160,26 @@ namespace SmarTrakWebData.Repositories
             return result.ToList();
         }
 
+        public async Task<List<TopExpiringSubscriptionViewModel>> GetTopExpiringSubscriptionsAsync(int rowCount)
+        {
+            var today = DateTime.UtcNow;
+
+            return await _context.Subscriptions
+                .Where(s => s.CommitmentEndDate != null && s.CommitmentEndDate > today)
+                .OrderBy(s => s.CommitmentEndDate)
+                .Take(rowCount)
+                .Select(s => new TopExpiringSubscriptionViewModel
+                {
+                    SubscriptionId = s.SubscriptionId,
+                    OfferName = s.OfferName,
+                    CommitmentEndDate = s.CommitmentEndDate ?? DateTime.MaxValue,
+                    CustomerId = s.CustomerId,
+                    CustomerName = s.Customer.Name,
+                    Status = s.Status
+                })
+                .ToListAsync();
+        }
+
+
     }
 }

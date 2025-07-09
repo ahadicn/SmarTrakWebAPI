@@ -269,6 +269,29 @@
         }
       }
     },
+    "/api/Subscriptions/TopSubscription": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "rowCount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/verify-authorized": {
       "get": {
         "tags": [

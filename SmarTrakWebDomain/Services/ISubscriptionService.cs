@@ -15,6 +15,8 @@ namespace SmarTrakWebDomain.Services
         Task<IEnumerable<SubscriptionModel>> GetSubscriptionById(Guid Id);
         Task<SPSubscriptionCountModel> GetSubscriptionCountAsync();
         Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync();
-        
+        Task<List<TopExpiringSubscriptionViewModel>> GetTopExpiringSubscriptionsAsync(int rowCount);
+
+
     }
 }
