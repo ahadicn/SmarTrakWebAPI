@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SmarTrakWebData\SmarTrakWebData.csproj" />
     <ProjectReference Include="..\SmarTrakWebDomain\SmarTrakWebDomain.csproj" />
   </ItemGroup>
 

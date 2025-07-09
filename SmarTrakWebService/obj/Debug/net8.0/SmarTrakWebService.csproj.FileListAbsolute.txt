@@ -30,3 +30,5 @@ E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Debug\net8.0\Smar
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Debug\net8.0\refint\SmarTrakWebService.dll
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Debug\net8.0\SmarTrakWebService.pdb
 E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\obj\Debug\net8.0\ref\SmarTrakWebService.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Debug\net8.0\SmarTrakWebData.dll
+E:\Smartrak\SmarTrackWeb\SmarTrakWebAPI\SmarTrakWebService\bin\Debug\net8.0\SmarTrakWebData.pdb

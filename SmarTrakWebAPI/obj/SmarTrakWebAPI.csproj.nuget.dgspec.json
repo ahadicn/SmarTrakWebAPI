@@ -316,6 +316,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\SmarTrakWebData.csproj": {
+                "projectPath": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebData\\SmarTrakWebData.csproj"
+              },
               "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\SmarTrakWebDomain.csproj": {
                 "projectPath": "E:\\Smartrak\\SmarTrackWeb\\SmarTrakWebAPI\\SmarTrakWebDomain\\SmarTrakWebDomain.csproj"
               }

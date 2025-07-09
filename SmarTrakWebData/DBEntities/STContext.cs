@@ -17,13 +17,16 @@ public partial class STContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
+    public virtual DbSet<Role> Roles { get; set; }
+
     public virtual DbSet<Subscription> Subscriptions { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=tcp:smatrakdemo.database.windows.net;Database=SmarTrakDemo;User ID=Smartrak;Password=Vofox@1234;TrustServerCertificate=True;");
-        //=> optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=AzureSmartrak;user id=sa;password=vfx@123;TrustServerCertificate=True;");
-
+    //=> optionsBuilder.UseSqlServer("Server=tcp:smatrakdemo.database.windows.net;Database=SmarTrakDemo;User ID=Smartrak;Password=Vofox@1234;TrustServerCertificate=True;");
+    => optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=AzureSmartrak;user id=sa;password=vfx@123;TrustServerCertificate=True;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Customer>(entity =>
@@ -51,6 +54,15 @@ public partial class STContext : DbContext
             entity.Property(e => e.State).HasMaxLength(100);
             entity.Property(e => e.UpdatedBy).HasMaxLength(255);
             entity.Property(e => e.UpdatedDate).HasDefaultValueSql("(sysutcdatetime())");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC07C5D1D23F");
+
+            entity.HasIndex(e => e.RoleName, "UQ__Roles__8A2B61604A7939F3").IsUnique();
+
+            entity.Property(e => e.RoleName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Subscription>(entity =>
@@ -89,6 +101,24 @@ public partial class STContext : DbContext
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Subscription_Customer_New");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC075E93BA40");
+
+            entity.HasIndex(e => e.TenantUserId, "UQ__Users__7AF9043BF8F03B0F").IsUnique();
+
+            entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getutcdate())");
+            entity.Property(e => e.Email).HasMaxLength(200);
+            entity.Property(e => e.Name).HasMaxLength(200);
+            entity.Property(e => e.Sub).HasMaxLength(200);
+            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("(getutcdate())");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK__Users__RoleId__2DE6D218");
         });
 
         OnModelCreatingPartial(modelBuilder);

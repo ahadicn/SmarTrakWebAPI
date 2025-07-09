@@ -6,12 +6,12 @@ using SmarTrakWebAPI.Filters;
 using Microsoft.Identity.Web;
 using System.Security.Claims;
 using System.Xml.Xsl;
-using SmarTrakWebAPI.DBEntities;
 using SmarTrakWebData.Repositories;
 using SmarTrakWebDomain.Repositories;
 using SmarTrakWebDomain.Services;
 using SmarTrakWebService;
 using Microsoft.AspNetCore.Authentication;
+using SmarTrakWebAPI.DBEntities;
 //using SmarTrakWebAPI.Middleware;
 
 
@@ -121,6 +121,8 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 

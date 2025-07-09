@@ -2126,6 +2126,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.6",
           "Newtonsoft.Json": "13.0.3",
+          "SmarTrakWebData": "1.0.0",
           "SmarTrakWebDomain": "1.0.0"
         },
         "compile": {

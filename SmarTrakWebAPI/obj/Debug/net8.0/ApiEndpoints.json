@@ -188,7 +188,17 @@
   {
     "ContainingType": "SmarTrakWebAPI.Controllers.UserAuthenticationController",
     "Method": "AssignRole",
-    "RelativePath": "assign-role",
+    "RelativePath": "AssignRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmarTrakWebAPI.Controllers.UserAuthenticationController",
+    "Method": "SaveUser",
+    "RelativePath": "SaveUser",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

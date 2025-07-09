@@ -281,7 +281,19 @@
         }
       }
     },
-    "/assign-role": {
+    "/AssignRole": {
+      "post": {
+        "tags": [
+          "UserAuthentication"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/SaveUser": {
       "post": {
         "tags": [
           "UserAuthentication"

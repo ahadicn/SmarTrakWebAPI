@@ -11,9 +11,11 @@ namespace SmarTrakWebAPI.Controllers
     public class UserAuthenticationController : ControllerBase
     {
         private readonly IUserAuthenticationService _userauthService;
-        public UserAuthenticationController(IUserAuthenticationService userauthService)
+        private readonly IUserService _userservice;
+        public UserAuthenticationController(IUserAuthenticationService userauthService, IUserService userservice)
         {
             _userauthService = userauthService;
+            _userservice = userservice;
         }
 
 
@@ -56,7 +58,19 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
-
+        [HttpPost("SaveUser")]
+        public async Task<IActionResult> SaveUser()
+        {
+            try
+            {
+                await _userservice.SaveUserFromClaimsAsync(User);
+                return Ok("User saved/updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error saving user: {ex.Message}");
+            }
+        }
 
     }
 }
