@@ -41,7 +41,12 @@ namespace SmarTrakWebService
         {
             return await _customerRepository.GetCustomerSubscriptionsAsync(searchTerm, page, pageSize);
         }
-                
+
+
+        public async Task<List<CustomerTabViewModel>> GetCustomerTabDataAsync(Guid customerId)
+        {
+            return await _customerRepository.GetCustomerTabDataAsync(customerId);
+        }
 
     }
 

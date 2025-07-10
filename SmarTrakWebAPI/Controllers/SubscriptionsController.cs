@@ -76,5 +76,20 @@ namespace SmarTrakWebAPI.Controllers
             }
         }
 
+        [HttpGet("SubscriptionStatuses")]
+        public async Task<IActionResult> GetSubscriptionStatuses()
+        {
+            try
+            {
+                var statuses = await _subscriptionService.GetDistinctStatusesAsync();
+                return Ok(statuses);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to load subscription statuses", message = ex.Message });
+            }
+        }
+
+
     }
 }

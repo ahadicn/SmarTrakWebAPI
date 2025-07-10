@@ -172,7 +172,19 @@ namespace SmarTrakWebData.Repositories
             };
         }
 
+        public async Task<List<CustomerTabViewModel>> GetCustomerTabDataAsync(Guid customerId)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            await connection.OpenAsync();
 
+            var stats = await connection.QueryAsync<CustomerTabViewModel>(
+                "GetCustomerSubscriptionStats",
+                new { CustomerId = customerId },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return stats.ToList();
+        }
 
 
     }

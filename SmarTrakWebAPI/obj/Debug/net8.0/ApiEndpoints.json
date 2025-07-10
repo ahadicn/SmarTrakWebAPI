@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SmarTrakWebAPI.Controllers.CustomerController",
+    "Method": "GetCustomerSubscriptionCount",
+    "RelativePath": "api/Customer/CustomerSubscriptionCount/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmarTrakWebAPI.Controllers.CustomerController",
     "Method": "GetCustomerById",
     "RelativePath": "api/Customer/GetCustomer/{id}",
     "HttpMethod": "GET",
@@ -188,6 +204,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmarTrakWebAPI.Controllers.SubscriptionsController",
+    "Method": "GetSubscriptionStatuses",
+    "RelativePath": "api/Subscriptions/SubscriptionStatuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -118,6 +118,29 @@
         }
       }
     },
+    "/api/Customer/CustomerSubscriptionCount/{customerId}": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Dashboard/CustomerCount": {
       "get": {
         "tags": [
@@ -292,6 +315,18 @@
               "default": 5
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Subscriptions/SubscriptionStatuses": {
+      "get": {
+        "tags": [
+          "Subscriptions"
         ],
         "responses": {
           "200": {

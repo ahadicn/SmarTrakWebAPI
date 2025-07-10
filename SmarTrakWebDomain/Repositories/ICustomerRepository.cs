@@ -16,5 +16,7 @@ namespace SmarTrakWebDomain.Services
 
         Task<SPCustomerCountModel> GetCustomerCountAsync();
         Task<PagedResult<CustomerWithSubscriptionsModel>> GetCustomerSubscriptionsAsync(string? searchTerm, int page, int pageSize);
+
+        Task<List<CustomerTabViewModel>> GetCustomerTabDataAsync(Guid customerId);
     }
 }

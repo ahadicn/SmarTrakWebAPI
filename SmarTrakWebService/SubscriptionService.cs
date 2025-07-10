@@ -45,5 +45,9 @@ namespace SmarTrakWebService
             return await _subscriptionRepository.GetTopExpiringSubscriptionsAsync(rowCount);
         }
 
+        public async Task<List<string>> GetDistinctStatusesAsync()
+        {
+            return await _subscriptionRepository.GetDistinctStatusesAsync();
+        }
     }
 }

@@ -52,7 +52,24 @@ namespace SmarTrakWebData.Repositories
             }
 
             // Filters
-            if (!string.IsNullOrWhiteSpace(model.Status)) query = query.Where(s => s.Status == model.Status);            
+            if (!string.IsNullOrWhiteSpace(model.Status))
+            {
+                if (model.Status.ToLower() == "expiring")
+                {
+                    var today = DateTime.UtcNow.Date;
+                    var next30Days = today.AddDays(30);
+
+                    query = query.Where(s =>
+                        s.CommitmentEndDate.HasValue &&
+                        s.CommitmentEndDate >= today &&
+                        s.CommitmentEndDate <= next30Days);
+                }
+                else
+                {
+                    query = query.Where(s => s.Status == model.Status);
+                }
+            }
+
             if (model.AutoRenewal.HasValue) query = query.Where(s => s.AutoRenewEnabled == model.AutoRenewal);
                        
 
@@ -186,6 +203,15 @@ namespace SmarTrakWebData.Repositories
                     CustomerName = s.Customer.Name,
                     Status = s.Status
                 })
+                .ToListAsync();
+        }
+
+        public async Task<List<string>> GetDistinctStatusesAsync()
+        {
+            return await _context.Subscriptions
+                .Select(s => s.Status)
+                .Distinct()
+                .OrderBy(s => s)
                 .ToListAsync();
         }
 

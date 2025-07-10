@@ -16,7 +16,6 @@ namespace SmarTrakWebDomain.Services
         Task<SPSubscriptionCountModel> GetSubscriptionCountAsync();
         Task<List<SubscriptionCalendarViewModel>> GetSubscriptionCalendarAsync();
         Task<List<TopExpiringSubscriptionViewModel>> GetTopExpiringSubscriptionsAsync(int rowCount);
-
-
+        Task<List<string>> GetDistinctStatusesAsync();
     }
 }

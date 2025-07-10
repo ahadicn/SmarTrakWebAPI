@@ -80,9 +80,22 @@ namespace SmarTrakWebAPI.Controllers
                 return StatusCode(500, new { error = "An error occurred while fetching customer subscriptions", message = ex.Message });
             }
         }
-               
 
 
+
+        [HttpGet("CustomerSubscriptionCount/{customerId}")]
+        public async Task<IActionResult> GetCustomerSubscriptionCount(Guid customerId)
+        {
+            try
+            {
+                var result = await _customerService.GetCustomerTabDataAsync(customerId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to load customer subscription stats", message = ex.Message });
+            }
+        }
 
 
         //==========================================================================
